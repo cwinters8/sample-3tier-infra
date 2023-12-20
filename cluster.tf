@@ -30,7 +30,7 @@ resource "aws_service_discovery_http_namespace" "app" {
 
 resource "aws_ecr_repository" "api" {
   name         = var.api_tags.Name
-  force_delete = true # change to true before tearing down
+  force_delete = true
 
   image_scanning_configuration {
     scan_on_push = true
@@ -41,7 +41,7 @@ resource "aws_ecr_repository" "api" {
 
 resource "aws_ecr_repository" "web" {
   name         = var.web_tags.Name
-  force_delete = true # change to true before tearing down
+  force_delete = true
 
   image_scanning_configuration {
     scan_on_push = true

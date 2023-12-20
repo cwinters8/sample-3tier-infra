@@ -244,12 +244,11 @@ resource "aws_secretsmanager_secret_version" "app_db_pw" {
 }
 
 resource "random_password" "app_db_pw" {
-  length           = 20
-  min_lower        = 1
-  min_upper        = 1
-  min_numeric      = 1
-  min_special      = 1
-  override_special = "!$-+<>:"
+  length      = 20
+  min_lower   = 1
+  min_upper   = 1
+  min_numeric = 1
+  special     = false
 
   keepers = local.app_db_triggers
 }
