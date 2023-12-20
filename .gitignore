@@ -1,0 +1,8 @@
+.terraform/
+*tfplan*
+*.tfstate*
+logs/
+*.log
+bin/
+**/.aws-sam/build
+func_*.json
