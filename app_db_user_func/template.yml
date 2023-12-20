@@ -45,7 +45,7 @@ Resources:
                 - secretsmanager:GetSecretValue
               Effect: Allow
               Resource: >-
-                arn:aws:secretsmanager:us-east-2:773669924601:secret:3tier-app-db-pw-EGkdTp
+                arn:aws:secretsmanager:us-east-2:773669924601:secret:3tier-db-pw-EGkdTp
             - Action:
                 - secretsmanager:GetSecretValue
               Effect: Allow
@@ -54,8 +54,8 @@ Resources:
       SnapStart:
         ApplyOn: None
       Tags:
-        Name: pg-3tier-app-db
+        Name: pg-3tier-db
         component: db
         managed_by: terraform
-        service: 3tier-app
+        service: 3tier
       RuntimeManagementConfig: {}

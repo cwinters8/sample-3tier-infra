@@ -11,7 +11,7 @@ variable "domain" {
 
 variable "app_name" {
   type    = string
-  default = "3tier-app"
+  default = "3tier"
 }
 
 variable "vpc_cidr_block" {
@@ -93,7 +93,7 @@ variable "web_tags" {
     component = string
   })
   default = {
-    Name      = "3tier-app-web"
+    Name      = "3tier-web"
     component = "web"
   }
 }
@@ -104,7 +104,7 @@ variable "api_tags" {
     component = string
   })
   default = {
-    Name      = "3tier-app-api"
+    Name      = "3tier-api"
     component = "api"
   }
 }
@@ -115,7 +115,7 @@ variable "db_tags" {
     component = string
   })
   default = {
-    Name      = "pg-3tier-app-db"
+    Name      = "pg-3tier-db"
     component = "db"
   }
 }
@@ -125,7 +125,7 @@ variable "public_tags" {
     Name = string
   })
   default = {
-    Name = "3tier-app-public"
+    Name = "3tier-public"
   }
 }
 
@@ -152,7 +152,7 @@ variable "public_port" {
 variable "db_name" {
   description = "name of the database on the RDS cluster"
   type        = string
-  default     = "pg3tierapp"
+  default     = "pg3tier"
 }
 
 variable "api_service_name" {

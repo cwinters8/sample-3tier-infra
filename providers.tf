@@ -18,9 +18,9 @@ terraform {
 
   backend "s3" {
     region         = "us-east-2"
-    bucket         = "3tier-app-infra"
+    bucket         = "3tier-infra"
     key            = "tf/terraform.tfstate"
-    dynamodb_table = "3tier-app-infra"
+    dynamodb_table = "3tier-infra"
   }
 }
 

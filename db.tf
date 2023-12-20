@@ -227,7 +227,7 @@ data "aws_iam_policy" "rds_enhanced_monitoring" {
 }
 
 resource "aws_secretsmanager_secret" "app_db_pw" {
-  name        = "${var.app_name}-db-pw"
+  name        = "${var.app_name}-db-pw-${var.app_db_pw_index}"
   description = "app db password for ${var.app_name}"
 
   tags = var.db_tags
