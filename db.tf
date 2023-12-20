@@ -77,7 +77,8 @@ resource "aws_lambda_invocation" "app_db_user_func" {
     pw_secret_arn    = aws_secretsmanager_secret.app_db_pw.arn
   })
 
-  triggers = local.app_db_triggers
+  depends_on = [aws_rds_cluster_instance.db]
+  triggers   = local.app_db_triggers
 }
 
 output "dbname" {
@@ -120,6 +121,7 @@ resource "aws_lambda_function" "app_db_user_func" {
     aws_iam_role_policy_attachment.app_db_user_func_master_secret,
     aws_iam_role_policy_attachment.app_db_user_func_secret,
     aws_iam_role_policy_attachment.app_db_user_func_vpc_access,
+    aws_iam_policy.app_db_pw_secret,
     aws_vpc_endpoint.sm
   ]
 }
@@ -227,8 +229,11 @@ data "aws_iam_policy" "rds_enhanced_monitoring" {
 }
 
 resource "aws_secretsmanager_secret" "app_db_pw" {
-  name        = "${var.app_name}-db-pw-${var.app_db_pw_index}"
+  name        = "${var.app_name}-db-pw"
   description = "app db password for ${var.app_name}"
+
+  # allows overwriting a secret that was scheduled for deletion
+  force_overwrite_replica_secret = true
 
   tags = var.db_tags
 }
