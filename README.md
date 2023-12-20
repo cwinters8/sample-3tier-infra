@@ -1,6 +1,6 @@
 # 3 tier app infrastructure
 
-This is sample AWS infrastructure configuration for an application with 3 tiers of services - web, API, and database.
+This is sample AWS infrastructure configuration for an application with 3 tiers of services - web, API, and database. The web and API services, along with their deployment configuration, can be found in the [sample 3 tier services repo](https://github.com/cwinters8/sample-3tier-services).
 
 The configuration creates:
 
